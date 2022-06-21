@@ -1,0 +1,257 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "salon appointment",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "CustomerAuthenticationIntent",
+          "slots": [
+            {
+              "name": "name",
+              "type": "AMAZON.FirstName"
+            }
+          ],
+          "samples": [
+            "Call me {name}",
+            "I am {name}",
+            "I would like to be called {name}",
+            "You can call me {name}",
+            "My name is {name}"
+          ]
+        },
+        {
+          "name": "DateIntent",
+          "slots": [
+            {
+              "name": "Date",
+              "type": "AMAZON.DATE",
+              "samples": [
+                "mark an appointment for {Date}",
+                "{Date}"
+              ]
+            }
+          ],
+          "samples": [
+            "Let\u0027s book it on {Date}",
+            "{Date} seems to be good",
+            "Book my appointment on {Date}",
+            "I would like to book on {Date}",
+            "{Date}"
+          ]
+        },
+        {
+          "name": "TimeIntent",
+          "slots": [
+            {
+              "name": "Time",
+              "type": "AMAZON.TIME",
+              "samples": [
+                "How about {Time}",
+                "Maybe around {Time}",
+                "Lets go for {Time}"
+              ]
+            }
+          ],
+          "samples": [
+            "Book my appointment at {Time}",
+            "I would like an appointment at {Time}",
+            "{Time} seems to work for me"
+          ]
+        },
+        {
+          "name": "ServiceIntent",
+          "slots": [
+            {
+              "name": "Service",
+              "type": "User_Service",
+              "samples": [
+                "Book an appointment for {Service}",
+                "I would like to avail {Service}",
+                "How about we go with {Service} {Service} and {Service}",
+                "I want to have only {Service}",
+                "I would like to try {Service} {Service} and {Service}",
+                "Lets go with {Service} and {Service}"
+              ],
+              "multipleValues": {
+                "enabled": true
+              }
+            }
+          ],
+          "samples": [
+            "I would like to avail {Service}",
+            "Book an appointment for {Service}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "id": "6",
+              "name": {
+                "value": "Pedicure"
+              }
+            },
+            {
+              "id": "5",
+              "name": {
+                "value": "Manicure"
+              }
+            },
+            {
+              "id": "4",
+              "name": {
+                "value": "Facial"
+              }
+            },
+            {
+              "id": "3",
+              "name": {
+                "value": "Shave"
+              }
+            },
+            {
+              "id": "2",
+              "name": {
+                "value": "Hair-Dyeing"
+              }
+            },
+            {
+              "id": "1",
+              "name": {
+                "value": "Waxing"
+              }
+            },
+            {
+              "id": "0",
+              "name": {
+                "value": "Hair-Cut"
+              }
+            }
+          ],
+          "name": "User_Service"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "DateIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "Date",
+              "type": "AMAZON.DATE",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1310041170704.657365801616"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TimeIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "Time",
+              "type": "AMAZON.TIME",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.931680346115.817897912619"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ServiceIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "Service",
+              "type": "User_Service",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.598125261303.1552738305471"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.1310041170704.657365801616",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Pick a date for your appointment"
+          },
+          {
+            "type": "PlainText",
+            "value": "What date would you like to book an appointment for?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.931680346115.817897912619",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "At what time would you like to book your appointment in the given time slot?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.598125261303.1552738305471",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "For which services would you like to book an appointment?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "20"
+}
